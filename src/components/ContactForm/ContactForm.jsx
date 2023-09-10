@@ -1,16 +1,10 @@
 import { useState } from 'react';
 
-// import { Component } from 'react';
 import css from './ContactForm.module.css';
 
 export const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-
-  // state = {
-  //   name: '',
-  //   number: '',
-  // };
 
   const handleChange = evt => {
     if (evt.currentTarget.name === 'name') {
@@ -18,13 +12,12 @@ export const ContactForm = ({ onSubmit }) => {
     } else {
       setNumber(evt.currentTarget.value);
     }
-    // this.setState({ [evt.currentTarget.name]: evt.currentTarget.value });
   };
 
   const handleSubmit = evt => {
     evt.preventDefault();
 
-    onSubmit({ name, number });
+    onSubmit(name, number);
     evt.currentTarget.reset();
   };
 
